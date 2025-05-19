@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Tumor Detection</title>
+    <!-- React and ReactDOM from CDN -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Tailwind CSS from CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            500: '#3B82F6',
+                            600: '#2563EB',
+                            700: '#1D4ED8',
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div id="root"></div>
+    
+    <script type="text/babel">
+        // Simple React components
+        const Navbar = () => (
+            <nav className="bg-white shadow-md">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="flex justify-between h-16">
+                        <div className="flex items-center">
+                            <span className="text-xl font-bold text-gray-900">BrainScan AI</span>
+                        </div>
+                        <div className="flex items-center">
+                            <a href="#" className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-primary-600">Login</a>
+                            <a href="#" className="ml-4 px-3 py-2 rounded-md text-sm font-medium bg-primary-600 text-white hover:bg-primary-700">Register</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        );
+
+        const Hero = () => (
+            <div className="bg-gradient-to-r from-primary-600 to-primary-700 text-white">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+                    <div className="flex flex-col md:flex-row items-center">
+                        <div className="md:w-1/2 mb-10 md:mb-0">
+                            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+                                Advanced Brain Tumor Detection with AI
+                            </h1>
+                            <p className="text-xl mb-8">
+                                Our cutting-edge AI technology helps detect brain tumors from MRI scans with high accuracy,
+                                providing quick and reliable results to support medical professionals.
+                            </p>
+                            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                                <button className="bg-white text-primary-700 hover:bg-gray-100 font-medium py-3 px-6 rounded-md transition-colors text-center text-lg">
+                                    Get Started
+                                </button>
+                                <button className="border border-white text-white hover:bg-white hover:text-primary-700 font-medium py-3 px-6 rounded-md transition-colors text-center text-lg">
+                                    Learn More
+                                </button>
+                            </div>
+                        </div>
+                        <div className="md:w-1/2 flex justify-center">
+                            <div className="w-64 h-64 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                                <span className="text-6xl">🧠</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+
+        const Features = () => (
+            <div className="py-16 bg-white">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl font-bold text-gray-900">Key Features</h2>
+                        <p className="mt-4 text-xl text-gray-600">
+                            Our platform offers powerful tools for brain tumor detection and analysis
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div className="bg-gray-50 p-6 rounded-lg shadow-md">
+                            <div className="text-primary-600 mb-4 text-4xl">📤</div>
+                            <h3 className="text-xl font-semibold mb-2">Easy Upload</h3>
+                            <p className="text-gray-600">
+                                Simple drag-and-drop interface for uploading MRI scans in various formats
+                            </p>
+                        </div>
+
+                        <div className="bg-gray-50 p-6 rounded-lg shadow-md">
+                            <div className="text-primary-600 mb-4 text-4xl">📊</div>
+                            <h3 className="text-xl font-semibold mb-2">Accurate Analysis</h3>
+                            <p className="text-gray-600">
+                                Advanced AI model trained on thousands of MRI scans for high-precision tumor detection
+                            </p>
+                        </div>
+
+                        <div className="bg-gray-50 p-6 rounded-lg shadow-md">
+                            <div className="text-primary-600 mb-4 text-4xl">🔒</div>
+                            <h3 className="text-xl font-semibold mb-2">Secure Storage</h3>
+                            <p className="text-gray-600">
+                                All patient data and scan results are securely stored with end-to-end encryption
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+
+        const Footer = () => (
+            <footer className="bg-gray-800 text-white py-8">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="flex flex-col md:flex-row justify-between items-center">
+                        <div className="flex items-center mb-4 md:mb-0">
+                            <span className="text-xl font-bold">BrainScan AI</span>
+                        </div>
+                        <div className="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">
+                            <p>&copy; {new Date().getFullYear()} BrainScan AI. All rights reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        );
+
+        // Main App component
+        function App() {
+            const [count, setCount] = useState(0);
+
+            return (
+                <div className="flex flex-col min-h-screen">
+                    <Navbar />
+                    <Hero />
+                    <Features />
+                    <Footer />
+                </div>
+            );
+        }
+        
+        // Render the App
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>

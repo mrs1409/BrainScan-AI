@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brain Tumor Detection</title>
+    <style>
+      .fallback {
+        display: none;
+        padding: 20px;
+        margin: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f8f8f8;
+        color: #333;
+        font-family: sans-serif;
+      }
+      #root:empty + .fallback {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <div class="fallback">
+      <h2>Loading Application...</h2>
+      <p>If this message persists, there might be an issue with the application.</p>
+      <p>Please check the browser console for errors.</p>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
